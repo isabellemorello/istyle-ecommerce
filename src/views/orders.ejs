@@ -1,0 +1,110 @@
+<%- include("navbar") %>
+<!-- ----------------------------MAIN------------------------------ -->
+<div class="container">
+  <div class="row">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+      <div class="list-group">
+        <a href="/users/me" class="list-group-item list-group-item-action"
+          >Il mio account</a
+        >
+        <a
+          href="/users/me/account"
+          class="list-group-item list-group-item-action"
+          >I miei dati</a
+        >
+        <a
+          href="#"
+          class="list-group-item list-group-item-action active"
+          id="account"
+          >I miei ordini</a
+        >
+      </div>
+    </div>
+    <div class="col-xl-9 shadow rounded-bottom box-ordini">
+      <div class="row">
+        <div class="col-xl-12">
+          <div
+            class="row rounded-top justify-content-between pt-3"
+            id="box-ordine"
+          >
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+              ID ORDINE
+              <p>qualcosa</p>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+              DATA
+              <p>qualcosa</p>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+              PREZZO TOTALE
+              <p>qualcosa</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-12">
+          <div class="row justify-content-between box-articoli">
+            <div class="col-xl-3 col-lg-3 col-md-3">
+              <img
+                src="/images/maglione1.png"
+                width="150px"
+                class="image-ordini"
+              />
+            </div>
+            <div class="col-xl-5 col-lg-3 col-md-3">
+              <h5>Nome</h5>
+              <p>Colore</p>
+              <p>Quantità</p>
+              <div class="row justify-content-between">
+                <div class="col-6">
+                  <form action="/carrello">
+                    <input
+                      type="hidden"
+                      name="userId"
+                      value="user-id-da-mettere-con-ejs"
+                    />
+                    <input
+                      type="hidden"
+                      name="prodottoId"
+                      value="prodotto-id-da-mettere-con-ejs"
+                    />
+                    <button
+                      class="btn btn-outline mt-3"
+                      type="submit"
+                      id="riacquista"
+                    >
+                      Compralo di nuovo
+                    </button>
+                  </form>
+                </div>
+                <div class="col-5">
+                  <form action="/prodotti/600ff64929984f138c41ce27">
+                    <input
+                      type="hidden"
+                      name="userId"
+                      value="user-id-da-mettere-con-ejs"
+                    />
+                    <input
+                      type="hidden"
+                      name="prodottoId"
+                      value="prodotto-id-da-mettere-con-ejs"
+                    />
+                    <button
+                      class="btn btn-outline mt-3"
+                      type="submit"
+                      id="riacquista"
+                    >
+                      Vedi l'articolo
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3x col-lg-3 col-md-3">Prezzo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ----------------------------FOOTER------------------------------ -->
+<%- include("footer") %>

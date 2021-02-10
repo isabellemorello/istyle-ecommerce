@@ -1,0 +1,448 @@
+/* ---------------- Navbar logo ---------------- */
+h2#logo {
+  font-family: Codystar;
+  margin: 0 20px;
+}
+
+strong {
+  font-family: Shanti;
+}
+
+.navbar {
+  background-color: #73566e;
+}
+.nav-item {
+  list-style: none;
+}
+
+a.dropdown-item:active {
+  background-color: #f25c78;
+}
+
+a#registrati {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.container {
+  -webkit-user-select: auto;
+}
+
+.navbar-collapse {
+  -webkit-user-select: auto;
+}
+
+div.right {
+  -webkit-user-select: auto;
+  margin: 0 20px;
+}
+
+svg.bi-bag {
+  margin: 0 0 0 1rem;
+}
+
+button.btn-md {
+  color: white;
+  background-color: #f25c78;
+  width: 100%;
+}
+
+/* ---------------- Body ---------------- */
+
+footer {
+  margin: 0 auto;
+  background-color: #f2c46d;
+}
+
+body.body {
+  background-color: #fbf8ef;
+}
+
+/* ---------------- Home ---------------- */
+button#scopri {
+  width: 35%;
+  border-color: #f25c78;
+  margin-left: 0;
+}
+
+.product-card {
+  background-color: white;
+}
+
+div.prodotto {
+  text-align: center;
+  object-fit: contain;
+  object-position: center;
+}
+
+.product-card img {
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ---------------- Scheda prodotto ---------------- */
+h6.colore {
+  margin-top: 3rem;
+  margin-bottom: 7rem;
+}
+
+svg.bi-truck {
+  margin-left: 0;
+}
+
+select#hidden {
+  margin-top: 6rem;
+  display: none;
+}
+
+select#taglia {
+  background-color: #fbf8ef;
+  border: solid 2px;
+  width: 85%;
+  border-color: #f25c78;
+}
+
+button.btn-outline:hover {
+  color: #292929;
+  background-color: #fbf8ef;
+  border-color: #e21d43;
+  border-width: 2px;
+}
+
+button#aggiungi {
+  width: 85%;
+  color: white;
+  background-color: #f25c78;
+}
+
+button#aggiungi:hover {
+  background-color: #e21d43;
+}
+
+.list-group {
+  width: 85%;
+}
+
+div#consegna {
+  width: 85%;
+  border: solid;
+  border-width: 1.5px;
+  border-color: #dbd9d1;
+  padding: 1.5rem 1rem 0.5rem;
+}
+
+/* ---------------- Carrello ---------------- */
+#containerProdotto {
+  /* margin-left: 1.5rem; */
+  margin-right: 0;
+}
+
+#cartBox {
+  background-color: #dbd9d1;
+}
+
+button#btnElimina {
+  border: none;
+  color: #83827e;
+  font-size: smaller;
+}
+
+button#btnElimina:hover {
+  border: none;
+  color: #f25c78;
+  background-color: transparent;
+  font-size: smaller;
+}
+
+svg.bi-trash:hover {
+  fill: #f25c78;
+}
+
+div#quantity {
+  padding-right: 2rem;
+}
+
+h6#totalPrice {
+  text-align: right;
+}
+
+div#totalone {
+  background-color: white;
+}
+
+#bottoneCompra {
+  background-color: #f25c78;
+  color: white;
+  width: 100%;
+  border-radius: 4px;
+}
+
+#bottoneCompra:hover {
+  background-color: #e21d43;
+  color: white;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.colonnaTotale {
+  text-align: left;
+}
+
+.colonnaNomi {
+  text-align: left;
+}
+
+.colonnaPrezzo {
+  text-align: right;
+}
+
+.colonnaPrezzi {
+  text-align: right;
+}
+
+h5#totalone {
+  margin: 2rem 0 0 0;
+  text-align: right;
+}
+/* ---------------- Registrazione ---------------- */
+img#registrazione {
+  display: inline-block;
+  margin-right: 0;
+}
+
+h5.inserisci {
+  text-align: center;
+  margin: 4rem auto 1rem;
+}
+
+div.registrazione {
+  margin-top: 3rem;
+  background-color: rgb(232, 235, 234);
+  background-image: linear-gradient(rgb(230, 233, 229), rgb(223, 228, 231));
+}
+
+div.claim {
+  color: #f25c78;
+}
+
+h6.registrazione {
+  color: #83827e;
+}
+
+p.author {
+  margin-top: 9rem;
+  color: #83827e;
+  font-size: small;
+  -webkit-user-select: auto;
+}
+
+a.author {
+  vertical-align: baseline;
+  color: #83827e;
+  text-decoration: none;
+  -webkit-user-select: auto;
+}
+
+button.btn-primary {
+  margin-top: 2rem;
+  background-color: #f25c78;
+  border-color: #f25c78;
+  width: 20rem;
+  height: 3rem;
+}
+
+div.form {
+  margin: 2rem auto 6rem;
+  text-align: center;
+  display: block;
+}
+
+form.form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------------- Login ---------------- */
+h3.accedi {
+  color: #f25c78;
+  display: block;
+  text-align: center;
+  margin: 4rem auto 1rem;
+}
+
+h5.accedi {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+h5.email-exists {
+  text-align: center;
+  color: #f25c78;
+}
+
+a.oppure-registrati {
+  text-decoration: none;
+  color: #f25c78;
+}
+
+a.oppure-registrati:hover {
+  color: #e21d43;
+}
+
+/* ---------------- Logout ---------------- */
+
+h3.logout {
+  color: #f25c78;
+}
+
+.logout {
+  margin: 3rem 0 1rem 0;
+  text-align: center;
+  color: #292929;
+}
+
+.foto-logout {
+  text-align: center;
+}
+
+a.logout {
+  text-decoration: none;
+  color: white;
+}
+
+a.logout:hover {
+  /* text-decoration: none; */
+  color: white;
+}
+/* ---------------- Profilo ---------------- */
+li.list-group-item {
+  background-color: #fbf8ef;
+  border-width: 1.5px;
+}
+
+a#account {
+  color: #f25c78;
+  background-color: transparent;
+}
+
+a.list-group-item {
+  background-color: transparent;
+  border: none;
+}
+
+a.list-group-item:hover {
+  background-color: transparent;
+  font-weight: bold;
+}
+
+div.list-group {
+  margin: 4rem 3rem;
+}
+
+div#utente {
+  margin: 4rem 0;
+}
+
+div#ordini {
+  text-align: center;
+  margin: 7rem 0 2rem;
+}
+
+p#p {
+  margin: 2rem 0;
+}
+
+p#istyle {
+  text-align: center;
+}
+
+button.shopping {
+  background-color: #f25c78;
+  color: white;
+  width: 25%;
+  display: block;
+  margin: 2rem auto;
+}
+a#shopping {
+  color: white;
+  text-decoration: none;
+}
+
+/* ---------------- Ordini ---------------- */
+div.box-ordini {
+  margin-top: 4rem;
+  margin-bottom: 5rem;
+  background-color: white;
+}
+
+div.box-articoli {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+div#box-ordine {
+  background-color: #dbd9d1;
+}
+
+img.image-ordini {
+  display: block;
+  margin: auto;
+}
+
+button#riacquista {
+  border: solid 1.5px #f25c78;
+  color: #f25c78;
+}
+
+button#riacquista:hover {
+  background-color: #f25c78;
+  color: white;
+}
+/* ---------------- Dati Utente ---------------- */
+div#dati {
+  text-align: left;
+  margin: 4rem 0 2rem;
+}
+
+div#specifiche {
+  margin: 0 1rem 0 0;
+}
+
+div#email {
+  margin: 0 2rem 0 0;
+}
+
+div#password {
+  margin: 0 2rem 0 0;
+}
+
+div#icona {
+  margin-bottom: 2rem;
+  margin-right: 1rem;
+}
+
+button#modifica {
+  border: solid 2px;
+  border-color: #f25c78;
+  color: #f25c78;
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+
+button#modifica:hover {
+  color: white;
+  background-color: #f25c78;
+}
+
+/* ---------------- Generali ---------------- */
+button.btn:hover {
+  color: white;
+  border-color: #e21d43;
+  background-color: #e21d43;
+}
+
+a.border {
+  text-decoration: none;
+  border-color: black;
+}

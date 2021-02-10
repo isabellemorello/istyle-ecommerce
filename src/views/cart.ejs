@@ -1,0 +1,180 @@
+<%- include("navbar") %>
+<!-- ----------------------------MAIN------------------------------ -->
+<div class="container">
+  <div class="row rounded my-5">
+    <div class="col-xl-12 col-lg-12 col-md-12">
+      <h1>Carrello (<%= numberItems %> articoli)</h1>
+    </div>
+  </div>
+  <div class="container col-12">
+    <div
+      class="row d-flex justify-content-between rounded mx-auto pt-3 pb-5 mb-5"
+      id="cartBox"
+    >
+      <div
+        class="col-xl-8 col-lg-12 col-md-12 col-sm-12 my-4"
+        id="containerProdotto"
+      >
+        <% cartItems.forEach(function (item) { %>
+        <div class="card-group">
+          <div class="card">
+            <div class="row">
+              <div class="col-xl-4 col-lg-5 col-md-5 my-4 text-center">
+                <img src="<%=item.image%>" width="200px" class="py-3" />
+              </div>
+              <div class="col-xl-5 col-lg-5 col-md-5 my-4">
+                <div class="card-body d-flex flex-column align-items-stretch">
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <h4><%= item.name %></h4>
+                      </tr>
+                    </thead>
+                    <br />
+                    <br />
+                    <tbody>
+                      <tr>
+                        <td>Colore: <%= item.color %></td>
+                      </tr>
+                      <tr>
+                        <td>Taglia: <%= item.size %></td>
+                      </tr>
+                      <tr>
+                        <td><br /></td>
+                      </tr>
+                      <tr class="align-bottom">
+                        <td class="align-items-end">
+                          <button
+                            type="button"
+                            id="btnElimina"
+                            class="btn btn-sm"
+                            onclick="eliminaProdotto('<%=item._id%>')"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="#83827e"
+                              class="bi bi-trash"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+                              />
+                              <path
+                                fill-rule="evenodd"
+                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                              />
+                            </svg>
+                            Elimina
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div
+                class="col-xl-3 col-lg-2 col-md-2 text-end my-4"
+                id="quantity"
+              >
+                <div class="table-responsive">
+                  <table class="table table-borderless align-middle">
+                    <thead>
+                      <tr>
+                        <h4></h4>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <form id="quantityForm" action="/cart" method="post">
+                            <input
+                              type="hidden"
+                              name="productId"
+                              value="<%=item._id%>"
+                            />
+                            <input
+                              class="form-control"
+                              id="itemQuantity"
+                              type="number"
+                              name="quantity"
+                              value="<%=item.quantity%>"
+                              min="1"
+                            />
+                          </form>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><br /></td>
+                      </tr>
+                      <tr>
+                        <td><br /></td>
+                      </tr>
+                      <tr>
+                        <td><br /></td>
+                      </tr>
+                      <tr>
+                        <td><br /></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <h6 class="align-bottom" id="total">
+                            € <%= (item.price * item.quantity).toFixed(2) %>
+                          </h6>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+
+      <div class="col-xl-4 col-lg-7 col-md-12 col-sm-12 my=2">
+        <div class="container rounded pb-4 mt-4" id="totalone">
+          <div class="row d-flex justify-content-between pt-3 pb-5">
+            <div class="col-xl-6 col-lg-6 col-md-6 colonnaTotale">
+              <h4>Totale</h4>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 colonnaPrezzo">
+              <h5>Prezzo</h5>
+            </div>
+            <div class="row d-flex justify-content-between pt-3 pb-4">
+              <% cartItems.forEach(function (item) { %>
+              <div class="col-xl-6 col-lg-6 col-md-6 colonnaNomi">
+                <h6><%= item.name %></h6>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 colonnaPrezzi">
+                <h6 id="totalPrice">
+                  € <%= (item.price * item.quantity).toFixed(2) %>
+                </h6>
+              </div>
+              <% }); %>
+            </div>
+            <hr style="width: 80%; margin: auto" />
+            <h5 id="totalone">€ <%= cartTotal.toFixed(2) %></h5>
+          </div>
+
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+              <button
+                class="btn"
+                id="bottoneCompra"
+                onclick="deleteAllItemsCart()"
+              >
+                Compra
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ----------------------------FOOTER------------------------------ -->
+
+<%- include("footer") %>

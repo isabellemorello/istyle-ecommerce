@@ -1,0 +1,117 @@
+<%- include("navbar") %> <%# --------------------------- MAIN
+--------------------------- %>
+<div class="container col-8">
+  <div class="card border-light registrazione">
+    <div class="row">
+      <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 align-middle claim">
+        <div class="card-body">
+          <h3 class="card-title mt-5 text-center">
+            Benvenuto nel nostro mondo IStyle
+          </h3>
+          <h6 class="card-text my-5 text-center registrazione">
+            Dove anche tu ti potrai sentire una vera fashion addicted
+          </h6>
+          <p class="card-text align-text-bottom text-center author">
+            Photo by
+            <a
+              href="https://unsplash.com/@awcreativeut?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
+              class="author"
+              >Adam Winger</a
+            >
+            on
+            <a
+              href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
+              class="author"
+              >Unsplash</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
+        <img
+          src="/images/registrazione2.jpeg"
+          width="100%"
+          id="registrazione"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<h5 class="inserisci">Inserisci i tuoi dati</h5>
+
+<%# ---------------------------Form--------------------------- %>
+<div class="form col-xl-7 col-lg-7 col-md-8 col-sm-10">
+  <form action="/users/signup" method="post" class="row g-3 form" name="myForm">
+    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <input
+        class="form-control"
+        type="text"
+        name="name"
+        placeholder="Nome"
+        required
+      />
+    </div>
+    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <input
+        class="form-control"
+        type="text"
+        name="surname"
+        placeholder="Cognome"
+        required
+      />
+    </div>
+    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <input
+        class="form-control"
+        type="text"
+        name="email"
+        placeholder="E-mail"
+        required
+      />
+    </div>
+    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <input
+        class="form-control"
+        type="password"
+        name="password"
+        placeholder="Password"
+        required
+      />
+    </div>
+
+    <!-- <div class="col-md-12"><input class="form-control" type="text" name="name" placeholder="Conferma Password"></input></div> -->
+    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <input
+        class="form-control"
+        type="text"
+        name="city"
+        placeholder="Città"
+        required
+      />
+    </div>
+    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <input
+        class="form-control"
+        type="text"
+        name="address"
+        placeholder="Indirizzo"
+        required
+      />
+    </div>
+    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <input
+        class="form-control"
+        type="text"
+        name="phone"
+        placeholder="Telefono"
+        required
+      />
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-primary cliccami" type="submit">Registrati</button>
+    </div>
+  </form>
+</div>
+
+<%# --------------------------- FOOTER --------------------------- %> <%-
+include("footer") %>
