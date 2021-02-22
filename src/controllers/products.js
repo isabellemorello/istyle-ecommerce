@@ -130,7 +130,6 @@ exports.products_delete_product = (req, res, next) => {
         request: {
           type: "POST",
           url: "http://localhost:4000/products",
-          body: { name: "String", price: "Number" },
         },
       });
     })

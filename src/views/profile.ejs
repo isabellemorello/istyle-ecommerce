@@ -1,5 +1,5 @@
-<%# Importiamo la navbar %> <%- include("navbar") %>
-<!-- ----------------------------MAIN------------------------------ -->
+<%# Importiamo la navbar %> <%- include("navbar") %> <%#
+---------------------------- MAIN ------------------------------ %>
 <div class="container">
   <div class="row">
     <%# Visualizziamo il menù laterale %>
@@ -23,7 +23,8 @@
         >
       </div>
     </div>
-    <%# ----------------------- Sezione del profilo ----------------------- %>
+
+    <%# ------------- Sezione del profilo ----------- %>
     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8" id="utente">
       <%# Saluto dinamico visualizzando il nome completo dell'utente loggato %>
       <h2>Ciao <%= user.name %> <%= user.surname %></h2>
@@ -54,5 +55,5 @@
   </div>
 </div>
 
-<!-- ----------------------------FOOTER------------------------------ -->
-<%# Importiamo il footer %> <%- include("footer") %>
+<%# ----------------------------FOOTER------------------------------ %> <%#
+Importiamo il footer %> <%- include("footer") %>

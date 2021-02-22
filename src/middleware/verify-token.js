@@ -1,22 +1,26 @@
+// Importiamo la libreria jsonwebtoken
 const jwt = require("jsonwebtoken");
 
+// Esportiamo il middleware per poi importarlo nelle varie routes
 module.exports = function (req, res, next) {
+  // Salviamo in una variabile il token generato e salvato nel cookie
   let accessToken = req.cookies.jwt;
 
-  // se non c'è alcun token salvato nel cookie, la request non è autorizzata
+  // Se non c'è alcun token salvato nel cookie, la request non è autorizzata
   if (!accessToken) {
-    // return res.status(403).send();
+    // L'utente viene riportato alla pagina di login
     return res.redirect("/users/login");
   }
 
   try {
-    // utilizzo il metodo jwt.verify per verificare il token
-    // mostra un errore se il token è scaduto o se ha una signature non valida
+    // Utilizziamo il metodo jwt.verify per verificare il token
+    // Mostra un errore se il token è scaduto o se ha una signature non valida
     const decoded = jwt.verify(accessToken, process.env.JWT_KEY);
-    res.locals.userId = decoded._id;
+    res.locals.userId = decoded._id; // qui prendiamo l'id dell'utente contenuto nel payload
+    // Così l'utente ha l'autorizzazione per accedere alle risorse che hanno come requisito questo middleware
     next();
   } catch (e) {
-    // se c'è un errore ritorna una request di non autorizzazione
+    // Se c'è un errore ritorna un errore nella richiesta di autorizzazione
     return res.status(401).send();
   }
 };

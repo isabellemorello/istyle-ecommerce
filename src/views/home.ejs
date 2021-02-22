@@ -1,8 +1,7 @@
-<%# Importiamo la navbar %> <%- include("navbar") %>
-
-<!-- ----------------------------MAIN------------------------------ -->
+<%# Importiamo la navbar %> <%- include("navbar") %> <%#
+---------------------------- MAIN ------------------------------ %>
 <main class="container mb-5">
-  <!-- ----------------------------FOTO HOMEPAGE------------------------------ -->
+  <%# ----------- FOTO HOMEPAGE ----------- %>
   <div class="container mb-3">
     <div class="col-md-12 shadow-sm">
       <img
@@ -15,8 +14,8 @@
   </div>
 
   <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mt-5">
-    <!-- tag ejs per inserire codice javascript => per ogni articolo del catologo vengono inserite le informazioni  -->
-    <% products.forEach(item => { %>
+    <%# tag ejs per inserire codice javascript => per ogni articolo del catologo
+    vengono inserite le informazioni %> <% products.forEach(item => { %>
     <div class="col">
       <div class="card rounded product-card shadow-sm">
         <div
@@ -28,6 +27,7 @@
             src="<%=item.image%>"
             width="350px"
             height="300px"
+            alt=""
           />
         </div>
         <div class="card-body d-flex flex-column align-items-stretch">
@@ -55,7 +55,8 @@
           <hr class="divider" />
           <div class="row mt-2 mb-4">
             <div class="col-xl-12 col-lg-12 col-md-12 text-end">
-              <!-- Cliccando su "Scopri di più" porta alla singola scheda prodotto tramite l'id del prodotto -->
+              <%# Cliccando su "Scopri di più" porta alla singola scheda
+              prodotto tramite l'id del prodotto %>
               <a href="/products/<%=item._id%>"
                 ><button class="btn btn-md" id="scopri">
                   Scopri di più
@@ -70,5 +71,5 @@
   </div>
 </main>
 
-<!-- ----------------------------FOOTER------------------------------ -->
-<%# Importiamo il footer %> <%- include("footer") %>
+<%# ----------------------------FOOTER------------------------------ %> <%#
+Importiamo il footer %> <%- include("footer") %>

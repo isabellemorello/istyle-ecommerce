@@ -1,6 +1,5 @@
-<%# Importiamo la navbar %> <%- include("navbar") %>
-<!-- ----------------------------MAIN------------------------------ -->
-
+<%# Importiamo la navbar %> <%- include("navbar") %> <%#
+----------------------------MAIN------------------------------ %>
 <div class="container">
   <div class="row">
     <%# Menù laterale %>
@@ -23,7 +22,7 @@
       </div>
     </div>
 
-    <!-- ----------------------------I miei dati------------------------------ -->
+    <%# ----------------------------I miei dati------------------------------ %>
 
     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8" id="utente">
       <div class="col-12">
@@ -82,7 +81,8 @@
           </div>
           <hr />
 
-          <!-- ----------------------------E-mail------------------------------ -->
+          <%# ----------------------------E-mail------------------------------
+          %>
 
           <div class="row">
             <div class="col-xl-1" id="icona">
@@ -126,8 +126,9 @@
             </div>
           </div>
           <hr />
-          <!-- ----------------------------Password------------------------------ -->
 
+          <%# ----------------------------Password------------------------------
+          %>
           <div class="row">
             <div class="col-xl-1" id="icona">
               <%# Visualizziamo l'icona dello scudo %>
@@ -177,5 +178,6 @@
     </div>
   </div>
 </div>
-<!-- ----------------------------FOOTER------------------------------ -->
-<%# Importiamo il footer %> <%- include("footer") %>
+
+<%# ----------------------------FOOTER------------------------------ %> <%#
+Importiamo il footer %> <%- include("footer") %>

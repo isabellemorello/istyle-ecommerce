@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static("public"));
 
-// Middleware per gestire il CORS e dare l'accesso ad ogni origin (*)
+// Middleware per gestire le CORS policies e dare l'accesso ad ogni origin (*)
 // Ci assicura di evitare CORS errors da browser
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");

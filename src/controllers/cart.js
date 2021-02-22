@@ -1,9 +1,8 @@
-// Importiamo le librerie necessarie
-const { Console } = require("console");
+// Importiamo la libreria di Mongoose
 const mongoose = require("mongoose");
-const cart = require("../models/cart");
+
+// Importiamo i modelli Cart, Product e User dalla cartella Models
 const Cart = require("../models/cart");
-const { findById } = require("../models/product");
 const Product = require("../models/product");
 const User = require("../models/user");
 
@@ -26,7 +25,7 @@ exports.cart_get_all = async (req, res, next) => {
           item.size = cartItem.size;
           numberItems += cartItem.quantity;
           cartTotal += item.price * cartItem.quantity;
-          items.push(item); // una volta che l'articolo (id) dentro il catalogo è stato trovato viene inserito con "push" dentro l'array items
+          items.push(item); // una volta che l'articolo (id) dentro il catalogo è stato trovato, viene inserito con "push" dentro l'array items
         }
       }
       console.log(foundUserCart);
@@ -39,7 +38,7 @@ exports.cart_get_all = async (req, res, next) => {
         cartTotal,
         cartUser: foundUserCart,
         isUserLoggedIn: true,
-      }); // mi mostri gli articoli nel carrello
+      }); // vengono visualizzati gli articoli nel carrello
     }
   } catch (error) {
     res.status(500).json({

@@ -1,6 +1,5 @@
 <%# Importiamo la navar %> <%- include("navbar") %> <%#
-----------------------------MAIN------------------------------ %>
-
+---------------------------- MAIN ------------------------------ %>
 <main class="container mb-5">
   <div class="row mt-5">
     <div class="col-xl-6 col-lg-6 col-md-12 flex-column col-md-4 prodotto">
@@ -14,6 +13,7 @@
           width="400px"
           class="mb-5"
           class="rounded prodotto"
+          alt=""
         />
       </div>
     </div>
@@ -33,7 +33,7 @@
       prendiamo l'id dell'utente e del prodotto tramite request.body. %>
       <form action="/cart" method="post">
         <%# Visualizzare la scelta della taglia, se il prodotto possiede la
-        taglia: Questi id fanno riferimento a prodotti che non posseggono alcuna
+        taglia: questi id fanno riferimento a prodotti che non posseggono alcuna
         taglia (occhiali da sole, borsa) %> <% if (product._id ==
         "601823e68de454df490ea8b8" || product._id == "601824308de454df490ea8b9")
         { %>
