@@ -1,4 +1,7 @@
+// Importiamo le librerie necessarie
 const mongoose = require("mongoose");
+
+// Importiamo i modelli Product dello productSchema e User dello userSchema
 const Product = require("../models/product");
 const User = require("../models/user");
 
@@ -10,7 +13,7 @@ exports.products_get_all = (req, res, next) => {
     .select("_id name price color image")
     .exec()
     .then((foundItems) => {
-      res.render("home", { products: foundItems, isUserLoggedIn });
+      res.render("home", { products: foundItems, isUserLoggedIn }); // renderizza la pagina home
     })
     .catch((err) => {
       console.log(err);
@@ -20,7 +23,7 @@ exports.products_get_all = (req, res, next) => {
     });
 };
 
-// Per creare un prodotto del Catalogo
+// Per creare un prodotto nel db riferito alla collezione products (utilizzato con POSTMAN)
 exports.products_create_product = (req, res, next) => {
   console.log(req.file);
   const product = new Product({
@@ -60,7 +63,7 @@ exports.products_create_product = (req, res, next) => {
     });
 };
 
-// Metodo GET per ottenere il singolo prodotto
+// Metodo GET per visualizzare il singolo prodotto
 exports.products_get_product = (req, res, next) => {
   const { isUserLoggedIn } = res.locals;
   const id = req.params.productId;
@@ -90,7 +93,7 @@ exports.products_get_product = (req, res, next) => {
     });
 };
 
-// Metodo per modificare un singolo prodotto
+// Metodo PATCH per modificare un singolo prodotto nel db (utilizzato con POSTMAN)
 exports.products_update_product = (req, res, next) => {
   const id = req.params.productId;
   const updateOps = {};
@@ -116,7 +119,7 @@ exports.products_update_product = (req, res, next) => {
     });
 };
 
-// Metodo per eliminare un prodotto
+// Metodo DELETE per eliminare un prodotto dal db (utilizzato con POSTMAN)
 exports.products_delete_product = (req, res, next) => {
   const id = req.params.productId;
   Product.deleteOne({ _id: id })

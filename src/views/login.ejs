@@ -1,9 +1,11 @@
+<%# Importiamo la navbar %> 
 <%- include("navbar") %>
 
 <!-- ----------------------------MAIN------------------------------ -->
 <h3 class="accedi">Bentornata!</h3>
 <h5 class="accedi">Accedi al tuo profilo</h5>
 <div class="col-xl-4 col-lg-5 col-md-6 col-sm-10 form">
+    <%# Form con metodo POST per fare il login %> 
     <form action="/users/login" method="post" class="row g-3 form">    
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
         <input class="form-control" type="text" name="email" placeholder="E-mail"></input>
@@ -21,5 +23,5 @@
 
 
 <!-- ----------------------------FOOTER------------------------------ -->
-
+<%# Importiamo il footer %> 
 <%- include("footer") %>

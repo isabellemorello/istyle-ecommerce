@@ -1,10 +1,10 @@
+// Importiamo la libreria mongoose
 const mongoose = require("mongoose");
-// const mongo_pass = process.env.MONGO_PASS;
-// const mongo_DB = proces.env.MONGO_DB;
-const mongoose_connection = process.env.MONGOOSE_CONNECTION;
-// const mongo_pass = "UniPordenone";
-// const mongo_DB = "ecommerceProdDb";
 
+// Importiamo MONGOOSE_CONNECTION dal file .env
+const mongoose_connection = process.env.MONGOOSE_CONNECTION;
+
+// Avviamo la connessione a MongoDB attraverso la libreria Mongoose
 mongoose.connect(
   mongoose_connection,
   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },

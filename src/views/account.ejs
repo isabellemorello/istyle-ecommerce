@@ -1,8 +1,9 @@
-<%- include("navbar") %>
+<%# Importiamo la navbar %> <%- include("navbar") %>
 <!-- ----------------------------MAIN------------------------------ -->
 
 <div class="container">
   <div class="row">
+    <%# Menù laterale %>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
       <div class="list-group">
         <a href="/users/me" class="list-group-item list-group-item-action"
@@ -31,6 +32,7 @@
         <div id="dati">
           <div class="row">
             <div class="col-xl-1" id="icona">
+              <%# Visualizziamo l'icona del profilo %>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
@@ -46,17 +48,22 @@
             </div>
             <div class="col-xl-4" id="specifiche">
               <h6>Nome</h6>
+              <%# Visualizziamo il nome dell'utente %>
               <p><%= myAccount.name %> <%= myAccount.surname %></p>
               <br />
               <h6>Indirizzo</h6>
+              <%# Visualizziamo l'indirizzo dell'utente %>
               <p><%= myAccount.city %>, <%= myAccount.address %></p>
             </div>
             <div class="col-xl-3" id="specifiche">
               <h6>Telefono cellulare</h6>
+              <%# Visualizziamo il numero di cellulare dell'utente %>
               <p><%= myAccount.phone %></p>
             </div>
             <div class="col-xl-3">
               <button class="btn btn-outline" id="modifica">
+                <%# Visualizziamo l'icona della matita all'interno del bottone
+                "Modifica" %>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -79,6 +86,7 @@
 
           <div class="row">
             <div class="col-xl-1" id="icona">
+              <%# Visualizziamo l'icona della busta %>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
@@ -94,10 +102,13 @@
             </div>
             <div class="col-xl-7" id="email">
               <h6>E-mail</h6>
+              <%# Visualizziamo l'e-mail dell'utente %>
               <p><%= myAccount.email %></p>
             </div>
             <div class="col-xl-3 mb-3">
               <button class="btn btn-outline" id="modifica">
+                <%# Visualizziamo l'icona della matita all'interno del bottone
+                "Modifica" %>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -119,6 +130,7 @@
 
           <div class="row">
             <div class="col-xl-1" id="icona">
+              <%# Visualizziamo l'icona dello scudo %>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
@@ -137,10 +149,13 @@
             </div>
             <div class="col-xl-7" id="password">
               <h6>Password</h6>
+              <%# Visualizziamo la password nascosta %>
               <p>&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</p>
             </div>
             <div class="col-xl-3">
               <button class="btn btn-outline" id="modifica">
+                <%# Visualizziamo l'icona della matita all'interno del bottone
+                "Modifica" %>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -163,4 +178,4 @@
   </div>
 </div>
 <!-- ----------------------------FOOTER------------------------------ -->
-<%- include("footer") %>
+<%# Importiamo il footer %> <%- include("footer") %>

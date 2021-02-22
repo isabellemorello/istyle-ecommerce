@@ -1,8 +1,10 @@
-<%- include("navbar") %>
-<!-- ----------------------------MAIN------------------------------ -->
+<%# Importiamo la navbar %> <%- include("navbar") %> <%#
+----------------------------MAIN------------------------------ %>
 <div class="container">
   <div class="row rounded my-5">
     <div class="col-xl-12 col-lg-12 col-md-12">
+      <%# Visualizziamo la quantità di tutti gli articoli presenti nel carrello
+      %>
       <h1>Carrello (<%= numberItems %> articoli)</h1>
     </div>
   </div>
@@ -15,11 +17,14 @@
         class="col-xl-8 col-lg-12 col-md-12 col-sm-12 my-4"
         id="containerProdotto"
       >
-        <% cartItems.forEach(function (item) { %>
+        <%# Per ogni prodotto del carrello visualizziamo determinate proprietà
+        di ogni singolo prodotto %> <% cartItems.forEach(function (item) { %>
         <div class="card-group">
           <div class="card">
             <div class="row">
               <div class="col-xl-4 col-lg-5 col-md-5 my-4 text-center">
+                <%# Visualizziamo l'immagine del prodotto all'interno del
+                carrello %>
                 <img src="<%=item.image%>" width="200px" class="py-3" />
               </div>
               <div class="col-xl-5 col-lg-5 col-md-5 my-4">
@@ -27,6 +32,8 @@
                   <table class="table table-borderless">
                     <thead>
                       <tr>
+                        <%# Visualizziamo il nome del prodotto all'interno del
+                        carrello %>
                         <h4><%= item.name %></h4>
                       </tr>
                     </thead>
@@ -34,9 +41,13 @@
                     <br />
                     <tbody>
                       <tr>
+                        <%# Visualizziamo il colore del prodotto all'interno del
+                        carrello %>
                         <td>Colore: <%= item.color %></td>
                       </tr>
                       <tr>
+                        <%# Visualizziamo la taglia del prodotto all'interno del
+                        carrello %>
                         <td>Taglia: <%= item.size %></td>
                       </tr>
                       <tr>
@@ -44,12 +55,18 @@
                       </tr>
                       <tr class="align-bottom">
                         <td class="align-items-end">
+                          <%# Questo bottone elimina il singolo prodotto dal
+                          carrello e utilizza la funzione "eliminaProdotto()"
+                          contenuto nel file script.js quando viene fatto il
+                          click, prendendo come parametro l'id del prodotto %>
                           <button
                             type="button"
                             id="btnElimina"
                             class="btn btn-sm"
                             onclick="eliminaProdotto('<%=item._id%>')"
                           >
+                            <%# Visualizziamo l'icona del cestino per eliminare
+                            il prodotto all'interno del carrello %>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
@@ -88,12 +105,18 @@
                     <tbody>
                       <tr>
                         <td>
+                          <%# Form con metodo POST per aggiornare la quantità
+                          del singolo prodotto all'interno del carrello %>
                           <form id="quantityForm" action="/cart" method="post">
+                            <%# Input nascosto per ricavare l'id del prodotto %>
                             <input
                               type="hidden"
                               name="productId"
                               value="<%=item._id%>"
                             />
+                            <%# Input di tipo "number" per la quantità del
+                            singolo prodotto, il cui valore minimo deve essere 1
+                            %>
                             <input
                               class="form-control"
                               id="itemQuantity"
@@ -120,7 +143,10 @@
                       <tr>
                         <td>
                           <h6 class="align-bottom" id="total">
-                            € <%= (item.price * item.quantity).toFixed(2) %>
+                            <%# Visualizziamo il prezzo totale del singolo
+                            prodotto all'interno del carrello, in base alla
+                            quantità %> € <%= (item.price *
+                            item.quantity).toFixed(2) %>
                           </h6>
                         </td>
                       </tr>
@@ -131,9 +157,10 @@
             </div>
           </div>
         </div>
-        <% }); %>
+        <%# Chiusura della funzioine .forEach() %> <% }); %>
       </div>
 
+      <%# Visualizziamo il container del Totale del carrello %>
       <div class="col-xl-4 col-lg-7 col-md-12 col-sm-12 my=2">
         <div class="container rounded pb-4 mt-4" id="totalone">
           <div class="row d-flex justify-content-between pt-3 pb-5">
@@ -144,23 +171,32 @@
               <h5>Prezzo</h5>
             </div>
             <div class="row d-flex justify-content-between pt-3 pb-4">
-              <% cartItems.forEach(function (item) { %>
+              <%# Funzione per visualizzare nome e prezzo di ogni prodotto
+              all'interno del carrello %> <% cartItems.forEach(function (item) {
+              %>
               <div class="col-xl-6 col-lg-6 col-md-6 colonnaNomi">
+                <%# Visualizziamo il nome del prodotto all'interno del carrello
+                %>
                 <h6><%= item.name %></h6>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 colonnaPrezzi">
                 <h6 id="totalPrice">
-                  € <%= (item.price * item.quantity).toFixed(2) %>
+                  <%# Visualizziamo il prezzo del prodotto all'interno del
+                  carrello %> € <%= (item.price * item.quantity).toFixed(2) %>
                 </h6>
               </div>
-              <% }); %>
+              <%# Chiusura della funzione .forEach() %> <% }); %>
             </div>
             <hr style="width: 80%; margin: auto" />
+            <%# Visualizziamo il prezzo totale del carrello %>
             <h5 id="totalone">€ <%= cartTotal.toFixed(2) %></h5>
           </div>
 
           <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12">
+              <%# Questo bottone svuota tutto il carrello e utilizza la funzione
+              "deleteAllItemsCart()" contenuto nel file script.js quando viene
+              fatto il click %>
               <button
                 class="btn"
                 id="bottoneCompra"
@@ -175,6 +211,5 @@
     </div>
   </div>
 </div>
-<!-- ----------------------------FOOTER------------------------------ -->
-
-<%- include("footer") %>
+<%# ----------------------------FOOTER------------------------------ %> <%#
+Importiamo il footer %> <%- include("footer") %>

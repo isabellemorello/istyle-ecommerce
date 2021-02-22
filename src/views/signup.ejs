@@ -1,5 +1,5 @@
-<%- include("navbar") %> <%# --------------------------- MAIN
---------------------------- %>
+<%# Importiamo la navbar %> <%- include("navbar") %> <%#
+--------------------------- MAIN --------------------------- %>
 <div class="container col-8">
   <div class="card border-light registrazione">
     <div class="row">
@@ -39,10 +39,11 @@
 </div>
 <h5 class="inserisci">Inserisci i tuoi dati</h5>
 
-<%# ---------------------------Form--------------------------- %>
+<%# --------------------------- Form --------------------------- %>
 <div class="form col-xl-7 col-lg-7 col-md-8 col-sm-10">
   <form action="/users/signup" method="post" class="row g-3 form" name="myForm">
     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <%# Input per l'inserimento del nome, che è un campo obbligatorio %>
       <input
         class="form-control"
         type="text"
@@ -52,6 +53,7 @@
       />
     </div>
     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <%# Input per l'inserimento del cognome, che è un campo obbligatorio %>
       <input
         class="form-control"
         type="text"
@@ -61,6 +63,7 @@
       />
     </div>
     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <%# Input per l'inserimento dell'e-mail, che è un campo obbligatorio %>
       <input
         class="form-control"
         type="text"
@@ -70,6 +73,7 @@
       />
     </div>
     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <%# Input per l'inserimento della password, che è un campo obbligatorio %>
       <input
         class="form-control"
         type="password"
@@ -79,8 +83,8 @@
       />
     </div>
 
-    <!-- <div class="col-md-12"><input class="form-control" type="text" name="name" placeholder="Conferma Password"></input></div> -->
     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <%# Input per l'inserimento della città, che è un campo obbligatorio %>
       <input
         class="form-control"
         type="text"
@@ -90,6 +94,7 @@
       />
     </div>
     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <%# Input per l'inserimento dell'indirizzo, che è un campo obbligatorio %>
       <input
         class="form-control"
         type="text"
@@ -99,6 +104,8 @@
       />
     </div>
     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+      <%# Input per l'inserimento del numero di telefono, che è un campo
+      obbligatorio %>
       <input
         class="form-control"
         type="text"
@@ -113,5 +120,5 @@
   </form>
 </div>
 
-<%# --------------------------- FOOTER --------------------------- %> <%-
-include("footer") %>
+<%# --------------------------- FOOTER --------------------------- %> <%#
+Importiamo il footer %> <%- include("footer") %>

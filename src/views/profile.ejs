@@ -1,7 +1,8 @@
-<%- include("navbar") %>
+<%# Importiamo la navbar %> <%- include("navbar") %>
 <!-- ----------------------------MAIN------------------------------ -->
 <div class="container">
   <div class="row">
+    <%# Visualizziamo il menù laterale %>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
       <div class="list-group">
         <a
@@ -22,12 +23,15 @@
         >
       </div>
     </div>
+    <%# ----------------------- Sezione del profilo ----------------------- %>
     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8" id="utente">
+      <%# Saluto dinamico visualizzando il nome completo dell'utente loggato %>
       <h2>Ciao <%= user.name %> <%= user.surname %></h2>
       <p id="p">
         Dal tuo account IStyle puoi gestire i tuoi ordini e dati di contatto.
       </p>
       <div id="ordini">
+        <%# Visualizziamo l'icona della borsa %>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="45"
@@ -42,7 +46,7 @@
         </svg>
       </div>
       <p id="istyle">Fai il tuo primo acquisto e diventa anche tu un IStyle.</p>
-
+      <%# Bottone che rimanda all'homepage %>
       <button type="button" class="btn shopping">
         <a href="/" id="shopping"> Inizia lo shopping</a>
       </button>
@@ -51,4 +55,4 @@
 </div>
 
 <!-- ----------------------------FOOTER------------------------------ -->
-<%- include("footer") %>
+<%# Importiamo il footer %> <%- include("footer") %>

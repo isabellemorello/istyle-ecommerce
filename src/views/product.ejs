@@ -1,4 +1,4 @@
-<%- include("navbar") %> <%#
+<%# Importiamo la navar %> <%- include("navbar") %> <%#
 ----------------------------MAIN------------------------------ %>
 
 <main class="container mb-5">
@@ -7,7 +7,8 @@
       <div
         class="d-flex flex-column align-items-center justify-content-center h-100"
       >
-        <%# per visualizzare le informazioni per singola scheda prodotto %>
+        <%# Visualizziamo l'immagine dell'articolo all'interno della pagina di
+        ogni singolo prodotto %>
         <img
           src="<%=product.image%>"
           width="400px"
@@ -17,16 +18,29 @@
       </div>
     </div>
     <div class="col-xl-6 col-lg-6 col-md-12">
+      <%# Visualizziamo il nome dell'articolo all'interno della pagina di ogni
+      singolo prodotto %>
       <h3><%= product.name %></h3>
+      <%# Visualizziamo il prezzo dell'articolo all'interno della pagina di ogni
+      singolo prodotto %>
       <h5 class="mt-3">€ <%= product.price %></h5>
+      <%# Visualizziamo il colore dell'articolo all'interno della pagina di ogni
+      singolo prodotto %>
       <h6 class="colore">Colore: <%= product.color %></h6>
+      <%# Form con metodo POST per aggiungere un prodotto al carrello (action:
+      /cart): con il metodo post catturo le info che vanno al server dopo aver
+      cliccato il bottone "aggiungi al carrello". Con il submit del bottone, noi
+      prendiamo l'id dell'utente e del prodotto tramite request.body. %>
       <form action="/cart" method="post">
-        <%# Visualizzare la scelta della taglia, in base al tipo di prodotto %>
-        <% if (product._id == "601823e68de454df490ea8b8" || product._id ==
-        "601824308de454df490ea8b9") { %>
+        <%# Visualizzare la scelta della taglia, se il prodotto possiede la
+        taglia: Questi id fanno riferimento a prodotti che non posseggono alcuna
+        taglia (occhiali da sole, borsa) %> <% if (product._id ==
+        "601823e68de454df490ea8b8" || product._id == "601824308de454df490ea8b9")
+        { %>
         <select id="hidden"></select>
-        <% } else if (product._id == "6018224e8de454df490ea8b4" || product._id
-        == "6018235b8de454df490ea8b6") { %>
+        <%# Questi id fanno riferimento alle scarpe presenti nel db %> <% } else
+        if (product._id == "6018224e8de454df490ea8b4" || product._id ==
+        "6018235b8de454df490ea8b6") { %>
         <select
           class="form-select mt-5"
           aria-label="Default select example"
@@ -42,7 +56,7 @@
           <option value="40">40</option>
           <option value="41">41</option>
         </select>
-        <% } else { %>
+        <% } else { %> <%# Tutti i prodotti che hanno una taglia %>
         <select
           class="form-select mt-5"
           aria-label="Default select example"
@@ -59,9 +73,7 @@
         </select>
         <% } %>
         <div>
-          <%# con il metodo post catturo le info che vanno al server dopo aver
-          cliccato il bottone "aggiungi carrello". Prendo l'id dell'utente e del
-          prodotto tramite request body. %>
+          <%# Con questo input nascosto vado a prendere l'id del prodotto %>
           <input type="hidden" name="productId" value="<%=product._id%>" />
           <button class="btn mt-3" type="submit" id="aggiungi">
             Aggiungi al carrello
@@ -72,14 +84,19 @@
         <ul class="list-group mt-5">
           <li class="list-group-item">
             <strong>Materiale:</strong>
+            <%# Visualizziamo il materiale dell'articolo all'interno della
+            pagina di ogni singolo prodotto %>
             <p class="mt-2"><%= product.material %></p>
           </li>
           <li class="list-group-item">
             <strong>Dettagli:</strong>
+            <%# Visualizziamo i dettagli dell'articolo all'interno della pagina
+            di ogni singolo prodotto %>
             <p class="mt-2"><%= product.details %></p>
           </li>
         </ul>
         <div class="rounded-2 mt-5" id="consegna">
+          <%# Visualizziamo l'icona del camion %>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="28"
@@ -99,5 +116,5 @@
   </div>
 </main>
 
-<%# ----------------------------FOOTER------------------------------ %> <%-
-include("footer") %>
+<%# ----------------------------FOOTER------------------------------ %> <%#
+Importiamo il footer %> <%-include("footer") %>

@@ -1,4 +1,4 @@
-<%- include("navbar") %>
+<%# Importiamo la navbar %> <%- include("navbar") %>
 
 <!-- ----------------------------MAIN------------------------------ -->
 <main class="container mb-5">
@@ -22,6 +22,7 @@
         <div
           class="d-flex flex-column align-items-center justify-content-center h-100"
         >
+          <%# Visualizziamo l'immagine dell'articolo all'interno della card %>
           <img
             class="card-img-top px-4 py-3"
             src="<%=item.image%>"
@@ -33,14 +34,20 @@
           <div class="mt-auto">
             <div class="row mx-2">
               <div class="col-8">
+                <%# Visualizziamo il nome dell'articolo all'interno della card
+                %>
                 <h5><%= item.name %></h5>
               </div>
               <div class="col-4">
+                <%# Visualizziamo il prezzo dell'articolo all'interno della card
+                %>
                 <h5 class="text-end">€ <%= item.price%></h5>
               </div>
             </div>
             <div class="row mx-2 pt-2">
               <div class="col-12">
+                <%# Visualizziamo il colore dell'articolo all'interno della card
+                %>
                 <p><%= item.color %></p>
               </div>
             </div>
@@ -59,9 +66,9 @@
         </div>
       </div>
     </div>
-    <% }) %>
+    <%# Qui viene chiusa la funzione .forEach() %> <% }) %>
   </div>
 </main>
 
 <!-- ----------------------------FOOTER------------------------------ -->
-<%- include("footer") %>
+<%# Importiamo il footer %> <%- include("footer") %>

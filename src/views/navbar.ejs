@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-commerce</title>
+    <title>I-Style</title>
     <!-- Collegamento al file styles.css -->
     <link rel="stylesheet" href="/css/styles.css" />
     <!-- Import di Bootstrap per css -->
@@ -13,7 +13,7 @@
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous"
     />
-    <!-- Collegamento alla libreria di Bootstrap -->
+    <!-- Import di alcuni font presi da Google Fonts -->
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Codystar&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Codystar&family=Shanti&display=swap");
@@ -45,6 +45,7 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
+                    <%# Importiamo l'icona del profilo %>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="30"
@@ -62,7 +63,9 @@
                     class="dropdown-menu"
                     aria-labelledby="navbarDropdownMenuLink"
                   >
-                    <% if(isUserLoggedIn) { %>
+                    <%# Andiamo a verificare se l'utente è loggato per
+                    visualizzare in modo diverso la navbar %> <%
+                    if(isUserLoggedIn) { %>
                     <li>
                       <a class="dropdown-item" href="/users/logout">
                         <button class="btn btn-md">Logout</button>
@@ -98,6 +101,7 @@
                 </li>
                 <li class="nav-item mt-2">
                   <a href="/cart">
+                    <%# Importiamo l'icona della borsa riferita al carrello %>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="26"

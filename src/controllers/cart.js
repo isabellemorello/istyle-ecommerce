@@ -1,3 +1,4 @@
+// Importiamo le librerie necessarie
 const { Console } = require("console");
 const mongoose = require("mongoose");
 const cart = require("../models/cart");
@@ -7,7 +8,7 @@ const Product = require("../models/product");
 const User = require("../models/user");
 
 // Metodo GET per visualizzare il carrello
-exports.orders_get_all = async (req, res, next) => {
+exports.cart_get_all = async (req, res, next) => {
   const { userId } = res.locals;
 
   try {
@@ -21,12 +22,11 @@ exports.orders_get_all = async (req, res, next) => {
         const item = await Product.findOne({ _id: cartItem.product }).exec();
 
         if (item) {
-          // item.taglia = cartItem.taglia;
           item.quantity = cartItem.quantity;
           item.size = cartItem.size;
           numberItems += cartItem.quantity;
           cartTotal += item.price * cartItem.quantity;
-          items.push(item); // una volta che l'articolo (id) dentro il catalogo è stato trovato viene inserito con "push" dentro l'array item
+          items.push(item); // una volta che l'articolo (id) dentro il catalogo è stato trovato viene inserito con "push" dentro l'array items
         }
       }
       console.log(foundUserCart);
@@ -54,7 +54,6 @@ exports.add_product_to_cart = async (req, res, next) => {
     const { userId } = res.locals;
     const { productId, size, quantity } = req.body; //Prendiamo tramite l'attributo name (in scheda prodotto) i valori dei tag degli input
     const cartItem = await Cart.findOne({ product: productId }).exec();
-    // const foundUser = await User.findById(userId).exec();
 
     if (quantity && userId) {
       // In base alla quantità selezionata aumenta o riduce la quantità precedente
@@ -63,13 +62,13 @@ exports.add_product_to_cart = async (req, res, next) => {
         { $set: { quantity: quantity } }
       );
     } else if (cartItem && userId) {
-      // Se l'articolo è già presente, aumenta la quantità di 1
+      // Se l'articolo è già presente nel carrello, aumenta la quantità di 1
       await Cart.updateOne(
         { _id: cartItem._id },
         { $set: { size: size, quantity: cartItem.quantity + 1 } }
       );
     } else {
-      // Aspettiamo che venga creato il documento passato alla create()
+      // Aspettiamo che venga creato il documento passato a create()
       await Cart.create({
         user: userId,
         product: productId,
@@ -86,33 +85,8 @@ exports.add_product_to_cart = async (req, res, next) => {
   }
 };
 
-// MAXIMILIAN
-exports.orders_get_order = async (req, res, next) => {
-  Cart.findById(req.params.orderId)
-    .exec()
-    .then((cart) => {
-      if (!cart) {
-        return res.status(404).json({
-          message: "Order not found",
-        });
-      }
-      res.status(200).json({
-        cart: cart,
-        request: {
-          type: "GET",
-          url: "http://localhost:4000/orders",
-        },
-      });
-    })
-    .catch((err) => {
-      res.status(500).json({
-        error: err,
-      });
-    });
-};
-
 // Metodo DELETE per cancellare un prodotto dal carrello
-exports.orders_delete_order = async (req, res, next) => {
+exports.cart_delete_product = async (req, res, next) => {
   const { cartId } = req.params;
   try {
     await Cart.deleteOne({
@@ -126,8 +100,8 @@ exports.orders_delete_order = async (req, res, next) => {
   }
 };
 
-// Metodo POST per eliminare tutti gli elementi del carrello
-exports.orders_delete_all_cart = async (req, res, next) => {
+// Metodo DELETE per eliminare tutti gli elementi del carrello
+exports.cart_delete_all_cart = async (req, res, next) => {
   const { userId } = res.locals;
 
   try {

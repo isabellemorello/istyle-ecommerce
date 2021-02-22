@@ -1,10 +1,10 @@
+// Importiamo le librerie necessarie
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+// Importiamo il modello User dello userSchema
 const User = require("../models/user");
-// const JWT_KEY_ACCESS = process.env.JWT_KEY_ACCESS;
-// const JWT_KEY_REFRESH = process.env.JWT_KEY_REFRESH;
 
 // Metodo GET per visualizzare la pagina di registrazione
 exports.user_get_signup = async (req, res, next) => {
@@ -23,7 +23,7 @@ exports.user_signup = async (req, res, next) => {
   try {
     // Fa un hashing della password inserita dall'utente, con un salt di 10
     const hash = await bcrypt.hash(req.body.password, 10);
-    // Creo un nuovo utente salvando la password criptata
+    // Creo un nuovo utente salvando la password criptata seguendo lo userSchema di User
     const newUser = new User({
       name: req.body.name,
       surname: req.body.surname,
@@ -39,7 +39,7 @@ exports.user_signup = async (req, res, next) => {
     const token = await newUser.generateAuthToken();
     // Il token viene salvato in un cookie che ha durata di un'ora e l'utente viene rendirizzato alla homepage
     return res
-      .cookie("jwt", token, { httpOnly: true, maxAge: 3600000 }) // Invio accessToken al lato client dentro un cookie
+      .cookie("jwt", token, { httpOnly: true, maxAge: 3600000 }) // Invio il token al lato client dentro un cookie
       .redirect("/");
   } catch (error) {
     return res.status(500).json({ error });
@@ -67,16 +67,17 @@ exports.user_login = async (req, res, next) => {
       return res.redirect("/users/login/error");
     }
 
+    // Comparazione tra la password inserita dal'utente nel form e la password già salvata nel db, attraverso una funzione della libreria bcrypt
     const sentPasswordMatchesUserPassword = await bcrypt.compare(
       req.body.password,
       user.password
     );
-
+    // Se l'email e la password sono corrette si genera un token
     if (sentPasswordMatchesUserPassword) {
       const token = await user.generateAuthToken();
 
       return res
-        .cookie("jwt", token, { httpOnly: true, maxAge: 3600000 }) // Invio accessToken al lato client dentro un cookie
+        .cookie("jwt", token, { httpOnly: true, maxAge: 3600000 }) // Invio il token al lato client dentro un cookie
         .redirect("/");
     } else {
       res.redirect("/users/login/error");
@@ -97,9 +98,9 @@ exports.user_get_profile = async (req, res, next) => {
   const { userId } = res.locals;
   try {
     const foundUser = await User.findById(userId).exec();
-
+    // se trova l'utente nella collezione users nel database
     if (foundUser) {
-      res.render("profile", { user: foundUser, isUserLoggedIn: true });
+      res.render("profile", { user: foundUser, isUserLoggedIn: true }); // renderizza la pagina del profilo dell'utente
     }
   } catch (error) {
     res.status(500).json({ error });
@@ -114,6 +115,7 @@ exports.user_get_myAccount = async (req, res, next) => {
 
     if (foundUser) {
       res.render("account", {
+        // renderizza la pagina account dell'utente
         myAccount: foundUser,
         user: foundUser,
         isUserLoggedIn: true,
@@ -132,6 +134,7 @@ exports.user_get_myOrders = async (req, res, next) => {
 
     if (foundUser) {
       res.render("orders", {
+        // renderizza la pagina ordini dell'utente
         myOrders: foundUser,
         user: foundUser,
         isUserLoggedIn: true,
@@ -142,23 +145,25 @@ exports.user_get_myOrders = async (req, res, next) => {
   }
 };
 
-// Metodo POST per fare il logout
+// Metodo GET per fare il logout
 exports.user_logout = async (req, res, next) => {
   const { isUserLoggedIn } = res.locals;
-  const accessToken = req.cookies.jwt;
+  const accessToken = req.cookies.jwt; // Andiamo a prendere il token contenuto nel cookie che si chiama jwt
 
   try {
-    const decoded = jwt.verify(accessToken, process.env.JWT_KEY);
-    const userId = decoded._id;
+    const decoded = jwt.verify(accessToken, process.env.JWT_KEY); // verifica se la chiave segreta possa generare questo specifico token (accessToken)
+    const userId = decoded._id; // dal payload andiamo a prendere l'id dell'utente
 
-    const foundUser = await User.findById(userId).exec();
+    const foundUser = await User.findById(userId).exec(); // cerco l'utente con quel dato id
     const validTokens = foundUser.tokens.filter(
+      // facciamo un filtraggio dove prendiamo tutti i token tranne l'accessToken del dispositivo da cui stiamo facendo logout
       (tokenItem) => tokenItem.token !== accessToken
     );
 
-    await foundUser.update({ tokens: validTokens });
+    await foundUser.update({ tokens: validTokens }); // ora questo array che ha tutti i token tranne l'accessToken deve essere aggiornato nel database
 
     res.clearCookie("jwt").render("logout", {
+      // il cookie viene cancellato
       user: foundUser,
       isUserLoggedIn,
     });

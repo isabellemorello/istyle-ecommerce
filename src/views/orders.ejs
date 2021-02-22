@@ -1,7 +1,8 @@
-<%- include("navbar") %>
+<%# Importiamo la navbar %> <%- include("navbar") %>
 <!-- ----------------------------MAIN------------------------------ -->
 <div class="container">
   <div class="row">
+    <%# Visualizziamo il menù laterale %>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
       <div class="list-group">
         <a href="/users/me" class="list-group-item list-group-item-action"
@@ -20,6 +21,9 @@
         >
       </div>
     </div>
+
+    <%# --------------------------- Storico degli Ordini
+    --------------------------- %>
     <div class="col-xl-9 shadow rounded-bottom box-ordini">
       <div class="row">
         <div class="col-xl-12">
@@ -27,20 +31,25 @@
             class="row rounded-top justify-content-between pt-3"
             id="box-ordine"
           >
+            <%# --------------------------- Intestazione della tabella
+            --------------------------- %>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
               ID ORDINE
-              <p>qualcosa</p>
+              <p>601823138de454df490ea8b5</p>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
               DATA
-              <p>qualcosa</p>
+              <p>25/02/2021</p>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
               PREZZO TOTALE
-              <p>qualcosa</p>
+              <p>€ 35.99</p>
             </div>
           </div>
         </div>
+
+        <%# --------------------------- Corpo della tabella
+        --------------------------- %>
         <div class="col-xl-12">
           <div class="row justify-content-between box-articoli">
             <div class="col-xl-3 col-lg-3 col-md-3">
@@ -56,6 +65,7 @@
               <p>Quantità</p>
               <div class="row justify-content-between">
                 <div class="col-6">
+                  <%# Form per ricomprare il prodotto %>
                   <form action="/carrello">
                     <input
                       type="hidden"
@@ -77,6 +87,7 @@
                   </form>
                 </div>
                 <div class="col-5">
+                  <%# Form per vedere la pagina del prodotto %>
                   <form action="/prodotti/600ff64929984f138c41ce27">
                     <input
                       type="hidden"
@@ -107,4 +118,4 @@
   </div>
 </div>
 <!-- ----------------------------FOOTER------------------------------ -->
-<%- include("footer") %>
+<%# Importiamo il footer %> <%- include("footer") %>
